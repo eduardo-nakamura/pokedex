@@ -10,7 +10,11 @@ nav{
   background: gray;
   color: white
 }
-
+.next-prev{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .nav-links{
   width: 50%;
   display: flex;
