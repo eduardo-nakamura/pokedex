@@ -9,13 +9,13 @@ function Nav() {
           <img src={Logo} alt="Pokemon" />
         </h3>
         <ul className="nav-links">
-          <Link to="/about">
+          <Link to="/pokedex/about">
           <li>About</li>
           </Link>
-          <Link to="/pokemon-detail">
+          <Link to="/pokedex/pokemon-detail">
           <li>PokemonList</li>
           </Link>
-          <Link to="/pokemon-info">
+          <Link to="/pokedex/pokemon-info">
           <li >PokemonInfo</li>
           </Link>
             

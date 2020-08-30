@@ -14,11 +14,10 @@ function App() {
       
         <Nav />
         <Switch>
-          <Route path="/" exact component={Home} />
-          
-          <Route path="/pokemon-detail" component={PokemonList} />
-          <Route path="/about" component={About} />
-          <Route path="/pokemon-info" component={PokemonInfo} />
+          <Route path="/pokedex/" exact component={Home} />          
+          <Route path="/pokedex/pokemon-detail" component={PokemonList} />
+          <Route path="/pokedex/about" component={About} />
+          <Route path="/pokedex/pokemon-info" component={PokemonInfo} />
         </Switch>
         
       </div>
