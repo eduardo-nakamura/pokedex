@@ -71,6 +71,9 @@ nav{
   /* transform: scale(1.2);
   z-index: 2; */
 }
+.pokemon-list p{ 
+  text-transform: capitalize;
+}
 @media screen and (max-width: 1100px) {
   .pokemon-list li{
     width: 19%;

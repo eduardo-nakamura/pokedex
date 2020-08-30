@@ -65,7 +65,7 @@ function PokemonList() {
         {filteredPokemans.map(pokeman => (
           <li key={pokeman.name}>
               <h3>#{pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}</h3>
-              {pokeman.name} 
+              <p>{pokeman.name.replaceAll("-", " ")} </p>
           </li>
         ))}     
       </ul>
