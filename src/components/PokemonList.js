@@ -52,7 +52,7 @@ function PokemonList() {
   return (
     <div>
       <a href="https://youtu.be/Law7wfdg_ls?list=PLDyQo7g0_nsVHmyZZpVJyFn5ojlboVEhE&t=1328">Router Turtoial</a>
-     <h1>Pokemon List</h1>
+     <h1>Pokemon  List</h1>
      <label htmlFor="">Search by name: </label>
      <input
         type="text"
