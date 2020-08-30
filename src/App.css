@@ -1,19 +1,40 @@
 .App {
   text-align: center;
 }
-
+body{
+  background-image: url('./assets/container_bg.png');
+}
 nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: gray;
+  background: #313131;
+  /* background-image: url('./assets/container_bg.png'); */
   color: white
 }
 .next-prev{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.next-prev p{
+  background: #313131;
+  padding: 10px 20px;
+  color: #fff
+}
+.next-prev button{
+  padding: 6px;
+  border:0;  
+  background-color: #E3350D;
+  font-size: 24px;
+  color: #fff
+}
+.next-prev button:focus{
+  outline:0;
+}
+.next-prev button:disabled{
+  opacity: 0;
 }
 .nav-links{
   width: 50%;
@@ -24,6 +45,41 @@ nav{
 }
 .nav-links a{
   color: white
+}
+.pokemon-list{  
+  display: flex;
+  flex-wrap: wrap;
+  padding:0;
+  margin:0 auto;
+  width: 90%;
+  max-width: 1200px;
+}
+.pokemon-list li{
+  transition: all 0.3s;
+  box-sizing: border-box;
+  padding:10px 0;
+  margin:0.5%;
+  list-style-type: none;
+  background: #F2F2F2;
+  width: 9%;
+  z-index: 1;
+  border-bottom: 7px solid transparent;
+}
+.pokemon-list li:hover{
+  background: lightgray;
+  border-bottom: 7px solid red;
+  /* transform: scale(1.2);
+  z-index: 2; */
+}
+@media screen and (max-width: 1100px) {
+  .pokemon-list li{
+    width: 19%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .pokemon-list li{
+    width: 49%;
+  }
 }
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
