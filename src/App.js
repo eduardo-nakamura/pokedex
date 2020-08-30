@@ -14,7 +14,8 @@ function App() {
       
         <Nav />
         <Switch>
-          <Route path="/" exact component={PokemonList} />
+          <Route path="/" exact component={Home} />
+          
           <Route path="/pokemon-detail" component={PokemonList} />
           <Route path="/about" component={About} />
           <Route path="/pokemon-info" component={PokemonInfo} />
@@ -25,6 +26,6 @@ function App() {
   );
 }
 
-
+const Home = () => <div><h1>Home</h1></div>
   
 export default App;

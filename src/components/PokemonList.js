@@ -60,7 +60,7 @@ function PokemonList() {
         value={searchTerm}
         onChange={handleChange}
       />
-      - {searchTerm}
+      
       <ul className="pokemon-list">
         {filteredPokemans.map(pokeman => (
           <li key={pokeman.name}>
