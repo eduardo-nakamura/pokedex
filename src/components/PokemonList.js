@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { GrFormPrevious,GrFormNext } from 'react-icons/gr'
+import { Link } from 'react-router-dom'
 
 function PokemonList() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -68,8 +69,11 @@ function PokemonList() {
       <ul className="pokemon-list">
         {filteredPokemans.map(pokeman => (
           <li key={pokeman.name}>
-              <h3>#{pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}</h3>
+            <Link to={`/pokedex/pokemon-detail/${pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}`}>
+            <h3>#{pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}</h3>
               <p>{pokeman.name.replaceAll("-", " ")} </p>
+            </Link>
+             
           </li>
         ))}     
       </ul>
