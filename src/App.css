@@ -1,17 +1,90 @@
 .App {
   text-align: center;
 }
-body{
+.container-page{
+  padding-top: 13vh;
+  
   background-image: url('./assets/container_bg.png');
 }
-nav{
+.search-container {
+  min-height: 10vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;  
+  flex-wrap: wrap;
+  background-color: red;
+  width: 90%;
+  max-width: 1200px;
+  margin: 10px auto;
+  padding: 0 10px;
+}
+.search-container label,
+.search-container input,
+.search-container button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+}
+.search-container input {
+  width: 100%;
+}
+.search-container input:focus{
+  outline:0;
+}
+nav{
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 10vh;
+  background: #313131;width: 100%;
+  z-index: 10;
+  /* display: flex;
+  justify-content: flex-start;
   align-items: center;
   min-height: 10vh;
   background: #313131;
-  /* background-image: url('./assets/container_bg.png'); */
+  position: relative;  
+  color: white */
+}
+nav h3{
+  margin-left: 15px;
+  font-size: 20px;
+  line-height: 20px;
+}
+.menu-btn{
+  background: red;
+  padding: 5px;
+  margin-left: 10px;
+}
+.nav-links{
+  top: 11vh;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0,1);
+  list-style-type: none;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  height: 90vh;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.nav-links a{
+  text-decoration: none;
   color: white
+}
+.nav-links li{
+  
+  padding: 10px 0 15px;
+
+}
+.nav-links li:hover{
+  background-color: rgba(255,255,255,0.2);
 }
 .next-prev{
   display: flex;
@@ -36,16 +109,7 @@ nav{
 .next-prev button:disabled{
   opacity: 0;
 }
-.nav-links{
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style-type: none;
-}
-.nav-links a{
-  color: white
-}
+
 .pokemon-list{  
   display: flex;
   flex-wrap: wrap;
@@ -82,6 +146,9 @@ nav{
 @media screen and (max-width: 500px) {
   .pokemon-list li{
     width: 49%;
+  }
+  form label{
+    display: none;
   }
 }
 /* @media (prefers-reduced-motion: no-preference) {

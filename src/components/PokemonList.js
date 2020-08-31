@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { GrFormPrevious,GrFormNext } from 'react-icons/gr'
 
 function PokemonList() {
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [pokemans, setPokemans] = useState([])
   const [filteredPokemans, setFilteredPokemans] = useState([])
   const [next, setNext] = useState()
@@ -50,16 +50,20 @@ function PokemonList() {
     } 
   }
   return (
-    <div>
+    <div className="container-page">
       <a href="https://youtu.be/Law7wfdg_ls?list=PLDyQo7g0_nsVHmyZZpVJyFn5ojlboVEhE&t=1328">Router Turtoial</a>
      <h1>Pokemon  List</h1>
-     <label htmlFor="">Search by name: </label>
-     <input
-        type="text"
-        placeholder="Search"
-        value={searchTerm}
-        onChange={handleChange}
+     <form className="search-container">
+      
+      <input
+          type="text"
+          placeholder="Procure pelo Nome"
+          value={searchTerm}
+          onChange={handleChange}
       />
+      
+     </form>
+     
       
       <ul className="pokemon-list">
         {filteredPokemans.map(pokeman => (
