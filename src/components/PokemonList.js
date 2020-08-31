@@ -71,7 +71,7 @@ function PokemonList() {
           <li key={pokeman.name}>
             <Link to={`/pokedex/pokemon-detail/${pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}`}>
             <h3>#{pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}</h3>
-              <p>{pokeman.name.replaceAll("-", " ")} </p>
+              <p>{pokeman.name.replace(/-/g, " ")} </p>
             </Link>
              
           </li>
