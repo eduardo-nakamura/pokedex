@@ -14,7 +14,7 @@ function App() {
       
         <Nav />
         <Switch>
-          <Route path="/pokedex/" exact component={Home} />          
+          <Route path="/pokedex/" exact component={PokemonList} />          
           <Route path="/pokedex/pokemon-list" component={PokemonList} />
           <Route path="/pokedex/about" component={About} />
           <Route path="/pokedex/pokemon-detail/:id"  component={PokemonInfo} />
