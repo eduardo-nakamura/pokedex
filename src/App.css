@@ -157,6 +157,27 @@ nav h3 {
     text-transform: capitalize;
 }
 
+.pokemon-list a {
+    text-decoration: none;
+    color: #313131
+}
+
+.pokemon-header {
+    display: flex;
+}
+
+.pokemon-header h1 {
+    text-transform: capitalize;
+}
+
+.pokemon-img img {
+    width: 100%;
+    max-width: 200px;
+    background: #F2F2F2;
+    border-radius: 50%;
+    border: 5px solid #FFF
+}
+
 @media screen and (max-width: 1100px) {
     .pokemon-list li {
         width: 19%;
