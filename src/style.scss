@@ -170,7 +170,8 @@ nav {
     display: flex;
     flex-flow: column wrap;
     text-align: left;
-    background: green
+    background: green;
+    margin: 10px
 }
 
 .navPokemon {
@@ -190,7 +191,11 @@ nav {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
+    .pokemon-header {
+        flex-direction: column;
+        align-items: center;
+    }
     .pokemon-list {
         li {
             width: 49%;
