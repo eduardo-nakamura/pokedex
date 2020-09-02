@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './style.css';
 
 import Nav from './components/Nav'
 import About from './components/About'
@@ -10,8 +10,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 function App() {
   return (
     <Router>    
-      <div className="App">
-      
+      <div className="App">      
         <Nav />
         <Switch>
           <Route path="/pokedex/" exact component={PokemonList} />          

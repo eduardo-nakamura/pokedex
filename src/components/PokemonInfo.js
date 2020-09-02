@@ -8,11 +8,12 @@ function PokemonInfo({match}) {
   const [pokemon, setPokemon] = useState();
   const [pokemonImg, setPokemonImg] = useState([]);
   const [types, setTypes] = useState([]);
-  useEffect(() => {
-    
-    fetchPokemon();
-   
+  useEffect(() => {    
+    fetchPokemon();   
   },[])  
+  useEffect(() => {    
+    fetchPokemon();   
+  },[match])  
 
   const fetchPokemon = async() => {  
     let query = `https://pokeapi.co/api/v2/pokemon/${match.params.id}`
@@ -22,30 +23,45 @@ function PokemonInfo({match}) {
     setPokemonImg(detail.sprites.other["official-artwork"].front_default)    
     let types = detail.types.map(function(type) {       
         return type.type.name;
-    });
+    });  
     setTypes(types);
 
   }
   return (
     <div className="container-page">
-     <div className="pokemon-header">
-       {pokemonImg ? 
-       <div className="pokemon-img">
-        <img src={pokemonImg} alt=""/>
+       <div className="navPokemon">
+         <div className="btnNavPokemon">
+         <Link to={`/pokedex/pokemon-detail/${parseInt(match.params.id) - 1}`}>
+          <GrFormPrevious size={35}/>
+         </Link>
+           
+         </div>
+         <div className="btnNavPokemon">
+         <Link to={`/pokedex/pokemon-detail/${parseInt(match.params.id) + 1}`}>
+          <GrFormNext size={35}/>
+         </Link>
+            
+         </div>
+         
        </div>
-       : ''}
-       
-      
-  <h1>{pokemon ? pokemon.name : ''} - Nº{pokemon ? pokemon.id : ''}</h1>
-      
+       {pokemon ? 
+       <div className="pokemon-header">
+        <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}/>
+        <div className="stats">
+         <h1>{ pokemon ? pokemon.name : '' } - Nº{ pokemon ? pokemon.id : '' }</h1>
+         <label htmlFor="">Height</label>
+         <p>{ pokemon ? pokemon.height : '' } m</p>
+         <label htmlFor="">Weight</label>
+         <p>{ pokemon ? pokemon.weight : '' } kg</p>
+         <label htmlFor="">Category</label>
+         <p>{ pokemon ? pokemon.types[0].type.name : '' }</p>
+       </div>
+       </div>
+       : '' }     
      </div>
      
-     {/* {JSON.stringify(pokemon)} */}
-      
-
-      {/* {pokemonImg ? pokemonImg.map(image => console.log(image)) : ''} */}
-      
-    </div>
+    
+   
   );
 }
 

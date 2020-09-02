@@ -51,8 +51,7 @@ function PokemonList() {
     } 
   }
   return (
-    <div className="container-page">
-      <a href="https://youtu.be/Law7wfdg_ls?list=PLDyQo7g0_nsVHmyZZpVJyFn5ojlboVEhE&t=1328">Router Turtoial</a>
+    <div className="container-page">     
      <h1>Pokemon  List</h1>
      <form className="search-container">
       

@@ -3,8 +3,10 @@
 }
 
 .container-page {
-    padding-top: 13vh;
+    position: relative;
+    top: 90px;
     background-image: url('./assets/container_bg.png');
+    padding: 10px
 }
 
 .search-container {
@@ -42,7 +44,7 @@ nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    min-height: 10vh;
+    min-height: 90px;
     background: #313131;
     width: 100%;
     z-index: 10;
@@ -68,7 +70,7 @@ nav h3 {
 }
 
 .nav-links {
-    top: 14vh;
+    top: 90px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -163,11 +165,19 @@ nav h3 {
 }
 
 .pokemon-header {
+    padding: 10px;
     display: flex;
+    background: red
 }
 
 .pokemon-header h1 {
     text-transform: capitalize;
+}
+
+.pokemon-header h1,
+.pokemon-header p {
+    padding: 0;
+    margin: 0
 }
 
 .pokemon-img img {
@@ -176,6 +186,13 @@ nav h3 {
     background: #F2F2F2;
     border-radius: 50%;
     border: 5px solid #FFF
+}
+
+.stats {
+    display: flex;
+    flex-flow: column wrap;
+    text-align: left;
+    background: green
 }
 
 @media screen and (max-width: 1100px) {
