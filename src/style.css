@@ -191,11 +191,13 @@ nav h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #a12a2a;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .pokemon-header h1 {
@@ -211,7 +213,7 @@ nav h3 {
 
 .pokemon-header img {
   width: 100%;
-  max-width: 200px;
+  max-width: 350px;
   background: #f2f2f2;
   border-radius: 50%;
   border: 5px solid #f2f2f2;
@@ -223,11 +225,40 @@ nav h3 {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+      -ms-flex-flow: column;
+          flex-flow: column;
   text-align: left;
-  background: green;
   margin: 10px;
+}
+
+.stats-info {
+  background: #30a7d7;
+  border-radius: 10px;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.stats-info label {
+  font-size: 110%;
+  font-weight: 700;
+}
+
+.stats-info p {
+  padding: 0 20px 0 5px;
+  font-size: 125%;
+  text-transform: capitalize;
+}
+
+.stats-box {
+  background: lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  list-style-type: none;
 }
 
 .navPokemon {

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState } from 'react';
 import Logo from '../assets/logo-pokemon-79x45.png';
 import { Link } from 'react-router-dom'
 import {AiOutlineMenu,AiOutlineClose} from 'react-icons/ai'
@@ -26,7 +26,7 @@ function Nav() {
           </Link>
                    
         </ul> : ''}
-        
+       
     </nav>
   );
 }

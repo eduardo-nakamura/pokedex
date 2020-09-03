@@ -181,8 +181,7 @@ nav h3 {
 }
 
 .pokemon-img img {
-    width: 100%;
-    max-width: 200px;
+    width: 50%;
     background: #F2F2F2;
     border-radius: 50%;
     border: 5px solid #FFF

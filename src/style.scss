@@ -148,8 +148,9 @@ nav {
 .pokemon-header {
     padding: 10px;
     display: flex;
-    background: $primaryBtn;
+    // background: $primaryBtn;
     flex-direction: row;
+    justify-content: center;
     h1 {
         text-transform: capitalize;
         @include paddingMargin(0)
@@ -159,7 +160,7 @@ nav {
     }
     img {
         width: 100%;
-        max-width: 200px;
+        max-width: 350px;
         background: $boxBG;
         border-radius: 50%;
         border: 5px solid $boxBG
@@ -168,10 +169,33 @@ nav {
 
 .stats {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     text-align: left;
-    background: green;
-    margin: 10px
+    margin: 10px;
+}
+
+.stats-info {
+    background: #30a7d7;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-end;
+    label {
+        font-size: 110%;
+        font-weight: 700;
+    }
+    p {
+        padding: 0 20px 0 5px;
+        font-size: 125%;
+        text-transform: capitalize;
+    }
+}
+
+.stats-box {
+    background: $boxHover;
+    border-radius: 10px;
+    padding: 15px;
+    list-style-type: none;
 }
 
 .navPokemon {
