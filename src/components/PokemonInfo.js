@@ -12,6 +12,7 @@ function PokemonInfo({match}) {
   useEffect(() => {    
     fetchPokemon();   
   },[])  
+
   useEffect(() => {    
     fetchPokemon();   
   },[match])  
@@ -20,25 +21,53 @@ function PokemonInfo({match}) {
     let query = `https://pokeapi.co/api/v2/pokemon/${match.params.id}`
     const data = await fetch(query)    
     const detail = await data.json()    
-    setPokemon(detail)
-    setPokemonImg(detail.sprites.other["official-artwork"].front_default)    
+    setPokemon(detail)       
     let types = detail.types.map(function(type) {       
         return type.type.name;
     });  
     setTypes(types);
     setStats(detail.stats)
+    let images = []
+    
+    if(detail.sprites.other["official-artwork"].front_default){
+      Object.defineProperty(images, "imgheader", {value: detail.sprites.other["official-artwork"].front_default})      
+      console.log(images,'images')
+    }   
+    // console.log(Object.values(detail.sprites),'values')
+    for (var [keyname, value] of Object.entries(detail.sprites)) {     
+      switch(typeof value) {
+        case 'string':
+          // let newProp = {[keyname]: value}
+          // images.push(newProp)      
+          
+          Object.defineProperty(images, keyname, {value:value})
+
+          break;
+        case 'object':           
+           if(value != null){
+            images.push(value)
+           }
+          break;
+        default:
+          // code block
+      }      
+    }
+    setPokemonImg(images)   
+    console.log(images) 
   }
+
+  
   return (
     <div className="container-page">
-      
+  
       <div className="navPokemon">
         <div className="btnNavPokemon">
-          <Link to={`/pokedex/pokemon-detail/${parseInt(match.params.id) - 1}`}>
+          <Link to={`/pokedex/pokemon-detail/${ match.params.id > 1 ? parseInt(match.params.id) - 1 : 1}`}>
             <GrFormPrevious size={35} />
           </Link>
         </div>
         <div className="btnNavPokemon">
-          <Link to={`/pokedex/pokemon-detail/${parseInt(match.params.id) + 1}`}>
+          <Link to={`/pokedex/pokemon-detail/${ match.params.id < 893 ? parseInt(match.params.id) + 1 : 893}`}>
             <GrFormNext size={35} />
           </Link>
         </div>
@@ -50,18 +79,26 @@ function PokemonInfo({match}) {
         
         <div className="pokemon-header">
           <img
-            src={pokemon.sprites.other["official-artwork"].front_default}
+            src={pokemonImg["imgheader"] ? pokemonImg["imgheader"] : pokemonImg["front_default"]}
             alt={pokemon.name}
           />
           <div className="stats">
             
             <div className="stats-info">
-              <label htmlFor="">Height</label>
-              <p>{pokemon ? pokemon.height / 10 : ""} m</p>
-              <label htmlFor="">Weight</label>
-              <p>{pokemon ? pokemon.weight / 10 : ""} kg</p>
-              <label htmlFor="">Category</label>
-              <p>{pokemon ? pokemon.types[0].type.name : ""}</p>
+              <label htmlFor="">Height:</label>
+              <p>{pokemon.height}m</p>
+              <label htmlFor="">Weight:</label>
+              <p>{pokemon.weight}kg</p>
+              <label htmlFor="">Category:</label>
+              {/* <p>{pokemon.types[0].type.name}</p> */}
+              <p>
+                {pokemon.types.map(type => (
+                  <span className={type.type.name}>
+                    {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+                    {/* name.charAt(0).toUpperCase() + name.slice(1) */}
+                  </span>
+                ))}
+              </p>
             </div>
             <div>
               <ul className="stats-box">

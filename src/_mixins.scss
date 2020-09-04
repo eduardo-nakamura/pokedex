@@ -9,3 +9,12 @@
     margin: $value;
     padding: $value
 }
+
+@mixin bgType($value) {
+    background-color: $value;
+}
+
+@mixin bgType2($value1, $value2...) {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, $value1 50%, $value2 50%);
+}

@@ -156,6 +156,7 @@ nav {
     // background: $primaryBtn;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     h1 {
         text-transform: capitalize;
         @include paddingMargin(0)
@@ -164,7 +165,7 @@ nav {
         @include paddingMargin(0)
     }
     img {
-        width: 100%;
+        // width: 100%;
         max-width: 350px;
         background: $boxBG;
         border-radius: 50%;
@@ -195,6 +196,12 @@ nav {
         font-size: 125%;
         text-transform: capitalize;
     }
+    span {
+        padding: 5px;
+        margin: 0 5px;
+        border-radius: 5px;
+        text-transform: capitalize;
+    }
 }
 
 .stats-box {
@@ -211,8 +218,12 @@ nav {
         display: flex;
         justify-content: space-between;
         font-size: 120%;
+        transition: all 0.3s;
         span {
             color: $boxBG
+        }
+        &:hover {
+            transform: scale(1.03);
         }
     }
 }
@@ -234,6 +245,18 @@ nav {
     }
 }
 
+
+/*
+@mixin bgType($value) {
+    background-color: $value;
+}
+
+@mixin bgType2($value1, $value2...) {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, $value1 50%, $value2 50%);
+}
+*/
+
 @media screen and (max-width: 800px) {
     .pokemon-header {
         flex-direction: column;
@@ -247,4 +270,103 @@ nav {
     form label {
         display: none;
     }
+}
+
+.normal {
+    background-color: $normal;
+    color: $dark
+}
+
+.fighting {
+    background-color: $fighting;
+    color: $dark
+}
+
+.poison {
+    background-color: $poison;
+    color: $dark
+}
+
+.rock {
+    background-color: $rock;
+    color: $dark
+}
+
+.bug {
+    background-color: $bug;
+    color: $light
+}
+
+.ghost {
+    background-color: $ghost;
+    color: $light
+}
+
+.steel {
+    background-color: $steel;
+    color: $dark
+}
+
+.fire {
+    background-color: $fire;
+    color: $dark
+}
+
+.water {
+    background-color: $water;
+    color: $light
+}
+
+.grass {
+    background-color: $grass;
+    color: $dark
+}
+
+.electric {
+    background-color: $electric;
+    color: $dark
+}
+
+.psychic {
+    background-color: $psychic;
+    color: $dark
+}
+
+.ice {
+    background-color: $ice;
+    color: $light
+}
+
+.dark {
+    background-color: $dark;
+    color: $light
+}
+
+.fairy {
+    background-color: $fairy;
+    color: $dark
+}
+
+// .unknown {
+// background-color:;	
+// }
+// .shadow {
+// background-color:;	
+// }
+.dragon {
+    @include bgType2($dragon1,
+    $dragon2);
+    color: $dark
+}
+
+.ground {
+    @include bgType2($ground1,
+    $ground2);
+    color: $dark
+}
+
+.flying {
+    @include bgType2($flying1,
+    $flying2);
+    color: $dark
 }

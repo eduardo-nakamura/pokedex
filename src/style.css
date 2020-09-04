@@ -203,6 +203,9 @@ nav h3 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .pokemon-header h1 {
@@ -217,7 +220,6 @@ nav h3 {
 }
 
 .pokemon-header img {
-  width: 100%;
   max-width: 350px;
   background: #f2f2f2;
   border-radius: 50%;
@@ -260,6 +262,13 @@ nav h3 {
   text-transform: capitalize;
 }
 
+.stats-info span {
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
 .stats-box {
   background: lightgray;
   border-radius: 10px;
@@ -280,10 +289,17 @@ nav h3 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 120%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .stats-box li span {
   color: #f2f2f2;
+}
+
+.stats-box li:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 
 .navPokemon {
@@ -306,6 +322,16 @@ nav h3 {
   }
 }
 
+/*
+@mixin bgType($value) {
+    background-color: $value;
+}
+
+@mixin bgType2($value1, $value2...) {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, $value1 50%, $value2 50%);
+}
+*/
 @media screen and (max-width: 800px) {
   .pokemon-header {
     -webkit-box-orient: vertical;
@@ -322,5 +348,101 @@ nav h3 {
   form label {
     display: none;
   }
+}
+
+.normal {
+  background-color: #a4a4a4;
+  color: #707070;
+}
+
+.fighting {
+  background-color: #d56723;
+  color: #707070;
+}
+
+.poison {
+  background-color: #b97fc9;
+  color: #707070;
+}
+
+.rock {
+  background-color: #a38c21;
+  color: #707070;
+}
+
+.bug {
+  background-color: #729f3f;
+  color: whitesmoke;
+}
+
+.ghost {
+  background-color: #7b62a3;
+  color: whitesmoke;
+}
+
+.steel {
+  background-color: #9eb7b8;
+  color: #707070;
+}
+
+.fire {
+  background-color: #fe7e25;
+  color: #707070;
+}
+
+.water {
+  background-color: #4592c4;
+  color: whitesmoke;
+}
+
+.grass {
+  background-color: #9ccd51;
+  color: #707070;
+}
+
+.electric {
+  background-color: #eed535;
+  color: #707070;
+}
+
+.psychic {
+  background-color: #f366b9;
+  color: #707070;
+}
+
+.ice {
+  background-color: #51c4e7;
+  color: whitesmoke;
+}
+
+.dark {
+  background-color: #707070;
+  color: whitesmoke;
+}
+
+.fairy {
+  background-color: #febaea;
+  color: #707070;
+}
+
+.dragon {
+  background: black;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #53a4cf), color-stop(50%, #f16e57));
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  color: #707070;
+}
+
+.ground {
+  background: black;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #f7de3f), color-stop(50%, #ac9943));
+  background: linear-gradient(180deg, #f7de3f 50%, #ac9943 50%);
+  color: #707070;
+}
+
+.flying {
+  background: black;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #3dc7ef), color-stop(50%, #bdb9b8));
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  color: #707070;
 }
 /*# sourceMappingURL=style.css.map */
