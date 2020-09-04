@@ -341,12 +341,46 @@ nav h3 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0;
   }
   .pokemon-list li {
     width: 49%;
   }
   form label {
     display: none;
+  }
+  .stats,
+  .stats-info,
+  .stats-box {
+    width: 93%;
+    margin: 10px 0;
+  }
+  .stats-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: left;
+  }
+  .stats-info label {
+    font-size: 110%;
+    font-weight: 700;
+  }
+  .stats-info p {
+    margin: 5px 0 10px;
+    padding: 0;
+  }
+  .stats-info span {
+    margin: 10px 10px 0 0;
   }
 }
 

@@ -152,8 +152,7 @@ nav {
 
 .pokemon-header {
     padding: 10px;
-    display: flex;
-    // background: $primaryBtn;
+    display: flex; 
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -261,6 +260,8 @@ nav {
     .pokemon-header {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        padding:0
     }
     .pokemon-list {
         li {
@@ -269,6 +270,29 @@ nav {
     }
     form label {
         display: none;
+    }
+    .stats,
+    .stats-info,
+    .stats-box{
+    width: 93%; 
+    margin:10px 0
+    }
+    .stats-info{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+        label {
+            font-size: 110%;
+            font-weight: 700;        
+        }     
+        p{
+            margin: 5px 0 10px;
+            padding:0
+        }
+        span {
+            margin: 10px 10px 0 0;            
+        }
     }
 }
 

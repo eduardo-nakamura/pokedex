@@ -9,11 +9,12 @@ function PokemonInfo({match}) {
   const [pokemonImg, setPokemonImg] = useState([]);
   const [types, setTypes] = useState([]);
   const [stats, setStats] = useState([]);
-  useEffect(() => {    
-    fetchPokemon();   
-  },[])  
+  // useEffect(() => {    
+  //   fetchPokemon();   
+  // })  
 
   useEffect(() => {    
+    
     fetchPokemon();   
   },[match])  
 
@@ -93,7 +94,7 @@ function PokemonInfo({match}) {
               {/* <p>{pokemon.types[0].type.name}</p> */}
               <p>
                 {pokemon.types.map(type => (
-                  <span className={type.type.name}>
+                  <span key={type.type.name} className={type.type.name}>
                     {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
                     {/* name.charAt(0).toUpperCase() + name.slice(1) */}
                   </span>
@@ -103,7 +104,7 @@ function PokemonInfo({match}) {
             <div>
               <ul className="stats-box">
                 {stats.map(stat =>(                  
-                  <li>
+                  <li key={stat.stat.name}>
                     <strong>{stat.stat.name.replace("-", " ")}</strong>
                     <span>{stat.base_stat}</span>
                     
