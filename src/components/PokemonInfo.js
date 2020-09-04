@@ -66,7 +66,11 @@ function PokemonInfo({match}) {
             <div>
               <ul className="stats-box">
                 {stats.map(stat =>(                  
-                  <li>{stat.stat.name + ": " +  stat.base_stat}</li>
+                  <li>
+                    <strong>{stat.stat.name.replace("-", " ")}</strong>
+                    <span>{stat.base_stat}</span>
+                    
+                  </li>
                 ))}              
               </ul>            
             </div>

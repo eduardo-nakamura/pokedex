@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./_mixins";
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 // @mixin inputLabelBtn {
 //     padding: 0.5rem;
 //     font-size: 2rem;
@@ -8,6 +9,10 @@
 // }
 .App {
     text-align: center;
+}
+
+* {
+    font-family: 'Questrial', sans-serif;
 }
 
 .container-page {
@@ -180,6 +185,7 @@ nav {
     padding: 15px;
     display: flex;
     align-items: flex-end;
+    color: $boxBG;
     label {
         font-size: 110%;
         font-weight: 700;
@@ -196,6 +202,19 @@ nav {
     border-radius: 10px;
     padding: 15px;
     list-style-type: none;
+    li {
+        background: linear-gradient(110deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 81%, rgba(0, 0, 0, 1) 81%, rgba(0, 0, 0, 1) 100%);
+        margin: 5px 0;
+        padding: 7px 15px;
+        border-radius: 22px;
+        text-transform: capitalize;
+        display: flex;
+        justify-content: space-between;
+        font-size: 120%;
+        span {
+            color: $boxBG
+        }
+    }
 }
 
 .navPokemon {
