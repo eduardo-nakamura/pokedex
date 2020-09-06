@@ -6,8 +6,8 @@ function PokemonList() {
   const [searchTerm, setSearchTerm] = useState("");
   const [pokemans, setPokemans] = useState([])
   const [filteredPokemans, setFilteredPokemans] = useState([])
-  const [next, setNext] = useState()
-  const [prev, setPrev] = useState()
+  const [max, setMax] = useState(19)
+  const [min, setMin] = useState(0)
   const [count, setCount] = useState()
   const [limit, setLimit] = useState(1050)
   const [offset, setOffset] = useState(0)
@@ -31,24 +31,20 @@ function PokemonList() {
     const data = await fetch(query)
     const pokemon = await data.json(); 
     setPokemans(pokemon.results)
-    setFilteredPokemans(pokemon.results)
-    setNext(pokemon.next)
-    setPrev(pokemon.previous)
-    setCount(pokemon.count / limit)     
+    setFilteredPokemans(pokemon.results)   
+    setCount(pokemon.count)  
   }
 
   const nextPokemons = () =>{    
-    if(next !== null){
-      setOffset(offset + 1)
-      fetchPokemon(next)
-    } 
+    setMax(max+20)
+    setMin(min+20)
+    setOffset(offset+1)
   }
 
   const prevPokemons = () =>{  
-    if(prev !== null){
-      setOffset(offset - 1)
-      fetchPokemon(prev)
-    } 
+    setMax(max-20)
+    setMin(min-20)
+    setOffset(offset-1)
   }
   return (
     <div className="container-page">     
@@ -64,30 +60,52 @@ function PokemonList() {
       
      </form>
      
-      
-      <ul className="pokemon-list">
-        {filteredPokemans.map(pokeman => (
+      {searchTerm.length > 0 ? 
+        <ul className="pokemon-list">
+        {filteredPokemans.map(pokeman => (         
           <li key={pokeman.name}>
             <Link to={`/pokedex/pokemon-detail/${pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}`}>
             <h3>#{pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}</h3>
-              <p>{pokeman.name.replace(/-/g, " ")} </p>
-            </Link>
-             
+              <p>{pokeman.name.replace(/-/g, " ")} </p>             
+            </Link>             
           </li>
+         
         ))}     
       </ul>
-    
-     
-      <div className="next-prev">
-        <button disabled={prev === null} onClick={prevPokemons}  style={{ color: '#ffffff' }}>
+      : 
+      <div>
+        <ul className="pokemon-list">
+        {filteredPokemans.map((pokeman, index) => (
+          index >= min && index <= max ?
+          <li key={pokeman.name}>
+            <Link to={`/pokedex/pokemon-detail/${pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}`}>
+            <h3>#{pokeman.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")}</h3>
+              <p>{pokeman.name.replace(/-/g, " ")} </p>             
+            </Link>             
+          </li>
+          : ''
+        ))}
+      </ul>
+      <div className="next-prev">  
+        <button disabled={min <= 0} onClick={prevPokemons}  style={{ color: '#ffffff' }}>
           <GrFormPrevious/>
         </button>        
-        <p>{offset + 1} / {count}</p>       
-        <button disabled={next === null} onClick={nextPokemons} style={{ color: '#ffffff' }}> 
+        <p>{offset + 1} / {parseInt(count / 20)+1}</p>       
+        <button disabled={max >= count} onClick={nextPokemons} style={{ color: '#ffffff' }}> 
           <GrFormNext/>
         </button>        
       </div>
-        {indexPokemon}
+      </div>
+      }
+      
+    
+     
+      
+
+
+      
+    
+      
     </div>
   );
 }

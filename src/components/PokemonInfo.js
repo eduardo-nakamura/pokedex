@@ -5,17 +5,19 @@ import { Link } from 'react-router-dom'
           
 
 function PokemonInfo({match}) {
+  const [showPokemon, setShowPokemon] = useState(false);
   const [pokemon, setPokemon] = useState();
   const [pokemonImg, setPokemonImg] = useState([]);
   const [types, setTypes] = useState([]);
   const [stats, setStats] = useState([]);
-  // useEffect(() => {    
-  //   fetchPokemon();   
-  // })  
+   useEffect(() => {    
+ 
+   })  
 
   useEffect(() => {    
+  
+    fetchPokemon();  
     
-    fetchPokemon();   
   },[match])  
 
   const fetchPokemon = async() => {  
@@ -59,19 +61,24 @@ function PokemonInfo({match}) {
 
   
   return (
-    <div className="container-page">
-  
+    <div className="container-page fadeAnimation">
+     
       <div className="navPokemon">
-        <div className="btnNavPokemon">
+        
           <Link to={`/pokedex/pokemon-detail/${ match.params.id > 1 ? parseInt(match.params.id) - 1 : 1}`}>
-            <GrFormPrevious size={35} />
+            <div className="btnNavPokemon">
+              <GrFormPrevious size={15} />
+            </div>
           </Link>
-        </div>
-        <div className="btnNavPokemon">
+        
+      
+        
           <Link to={`/pokedex/pokemon-detail/${ match.params.id < 893 ? parseInt(match.params.id) + 1 : 893}`}>
-            <GrFormNext size={35} />
+            <div className="btnNavPokemon">
+            <GrFormNext size={15} />
+            </div>
           </Link>
-        </div>
+        
       </div>
       <h1>
               {pokemon ? pokemon.name : ""} - Nº{pokemon ? pokemon.id : ""}
@@ -103,6 +110,7 @@ function PokemonInfo({match}) {
             </div>
             <div>
               <ul className="stats-box">
+                <h2>Base Stat</h2>
                 {stats.map(stat =>(                  
                   <li key={stat.stat.name}>
                     <strong>{stat.stat.name.replace("-", " ")}</strong>
