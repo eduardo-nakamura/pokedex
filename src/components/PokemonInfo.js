@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { GrFormPrevious,GrFormNext } from 'react-icons/gr'
 import { Link } from 'react-router-dom'
+import Evolution from './info-comp/Evolution'
 
           
 
@@ -8,7 +9,7 @@ function PokemonInfo({match}) {
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokemon, setPokemon] = useState();
   const [pokemonImg, setPokemonImg] = useState([]);
-  const [types, setTypes] = useState([]);
+  const [types, setTypesPkmn] = useState([]);
   const [stats, setStats] = useState([]);
    useEffect(() => {    
  
@@ -24,41 +25,49 @@ function PokemonInfo({match}) {
     let query = `https://pokeapi.co/api/v2/pokemon/${match.params.id}`
     const data = await fetch(query)    
     const detail = await data.json()    
+    let { sprites } = detail
+    console.log(sprites)
     setPokemon(detail)       
     let types = detail.types.map(function(type) {       
         return type.type.name;
     });  
-    setTypes(types);
+    setTypesPkmn(types);
     setStats(detail.stats)
     let images = []
     
     if(detail.sprites.other["official-artwork"].front_default){
       Object.defineProperty(images, "imgheader", {value: detail.sprites.other["official-artwork"].front_default})      
-      console.log(images,'images')
     }   
-    // console.log(Object.values(detail.sprites),'values')
+   
     for (var [keyname, value] of Object.entries(detail.sprites)) {     
       switch(typeof value) {
-        case 'string':
-          // let newProp = {[keyname]: value}
-          // images.push(newProp)      
-          
+        case 'string':          
           Object.defineProperty(images, keyname, {value:value})
-
           break;
         case 'object':           
            if(value != null){
             images.push(value)
            }
           break;
-        default:
-          // code block
+        default:          
       }      
     }
+    
     setPokemonImg(images)   
-    console.log(images) 
+
+    for( let i = 0; i < detail.types.length; i++ ){      
+      let query2 = detail.types[i].type.url
+      console.log(query2)
+      let data2 = await fetch(query2)    
+      let detail2 = await data2.json()  
+      console.log(detail2.damage_relations)
+    }
   }
 
+  function getTypes(typesHere){
+    
+    return typesHere
+  }
   
   return (
     <div className="container-page fadeAnimation">
@@ -94,9 +103,9 @@ function PokemonInfo({match}) {
             
             <div className="stats-info">
               <label htmlFor="">Height:</label>
-              <p>{pokemon.height}m</p>
+              <p>{pokemon.height / 10}m</p>
               <label htmlFor="">Weight:</label>
-              <p>{pokemon.weight}kg</p>
+              <p>{pokemon.weight / 10}kg</p>
               <label htmlFor="">Category:</label>
               {/* <p>{pokemon.types[0].type.name}</p> */}
               <p>
@@ -125,7 +134,16 @@ function PokemonInfo({match}) {
       ) : (
         ""
       )}
-
+      {
+        pokemon ?            
+          <Evolution apiEvolution={pokemon.species.url} />
+        : ''
+      }
+      
+      <div className="gallery">
+        <h2>Gallery</h2>
+       
+      </div>
       
     </div>
   );
