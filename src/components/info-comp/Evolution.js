@@ -15,7 +15,6 @@ export default function Evolution(apiEvolution){
     const dataEvo = await fetch(url);
     const dataEvoChain = await dataEvo.json();
    
-    console.log('aaa',dataEvoChain)
   }
   const fetchEvolution = async() => {
     let query = apiEvolution.apiEvolution;

@@ -16,7 +16,7 @@ function PokemonInfo({match}) {
    })  
 
   useEffect(() => {    
-  
+    
     fetchPokemon();  
     
   },[match])  
@@ -25,8 +25,7 @@ function PokemonInfo({match}) {
     let query = `https://pokeapi.co/api/v2/pokemon/${match.params.id}`
     const data = await fetch(query)    
     const detail = await data.json()    
-    let { sprites } = detail
-    console.log(sprites)
+    let { sprites } = detail    
     setPokemon(detail)       
     let types = detail.types.map(function(type) {       
         return type.type.name;
@@ -52,15 +51,13 @@ function PokemonInfo({match}) {
         default:          
       }      
     }
-    
+    console.log('images',images)
     setPokemonImg(images)   
 
     for( let i = 0; i < detail.types.length; i++ ){      
-      let query2 = detail.types[i].type.url
-      console.log(query2)
+      let query2 = detail.types[i].type.url      
       let data2 = await fetch(query2)    
-      let detail2 = await data2.json()  
-      console.log(detail2.damage_relations)
+      let detail2 = await data2.json()        
     }
   }
 

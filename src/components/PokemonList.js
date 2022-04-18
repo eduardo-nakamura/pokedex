@@ -27,6 +27,7 @@ function PokemonList() {
   const handleChange = e => {    
     setSearchTerm(e.target.value);
   };
+  
   const fetchPokemon = async(query) => {  
     const data = await fetch(query)
     const pokemon = await data.json(); 
