@@ -1,3 +1,8 @@
+## POKEDEX
+
+Simple project to search for Pokemon and check Pokemon Details.<br/>
+API Used: [https://pokeapi.co/](https://pokeapi.co/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
